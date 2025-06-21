@@ -23,9 +23,14 @@ function opt_get($opt_name) {
     
     $opt_name = base64_decode($opt_name);
     
-    $query = mysqli_query($db, "SELECT * FROM options WHERE opt_name = '$opt_name'");
-    if (mysqli_num_rows($query) === 1) {
-        return mysqli_fetch_assoc($query)['opt_value'];
+    // Use prepared statement for security
+    $stmt = $db->prepare("SELECT opt_value FROM options WHERE opt_name = ?");
+    $stmt->bind_param("s", $opt_name);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows === 1) {
+        return $result->fetch_assoc()['opt_value'];
     } else {
         return '-';
     }
@@ -36,7 +41,68 @@ function opt_update($opt_name, $opt_value) {
     
     $opt_name = base64_decode($opt_name);
     
-    $query = mysqli_query($db, "UPDATE options SET opt_value = '$opt_value' WHERE opt_name = '$opt_name'");
+    // Use prepared statement for security
+    $stmt = $db->prepare("UPDATE options SET opt_value = ? WHERE opt_name = ?");
+    $stmt->bind_param("ss", $opt_value, $opt_name);
+    return $stmt->execute();
+}
+
+// Enhanced security functions
+function sanitize_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+    return $data;
+}
+
+function validate_csrf_token($token) {
+    return isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);
+}
+
+function generate_secure_token($length = 32) {
+    return bin2hex(random_bytes($length));
+}
+
+function hash_password($password) {
+    return password_hash($password, PASSWORD_ARGON2ID, [
+        'memory_cost' => 65536,
+        'time_cost' => 4,
+        'threads' => 3
+    ]);
+}
+
+function verify_password($password, $hash) {
+    return password_verify($password, $hash);
+}
+
+function rate_limit($identifier, $max_attempts = 5, $time_window = 300) {
+    global $db;
+    
+    $current_time = time();
+    $window_start = $current_time - $time_window;
+    
+    // Clean old attempts
+    $stmt = $db->prepare("DELETE FROM rate_limits WHERE identifier = ? AND attempt_time < ?");
+    $stmt->bind_param("si", $identifier, $window_start);
+    $stmt->execute();
+    
+    // Count current attempts
+    $stmt = $db->prepare("SELECT COUNT(*) as count FROM rate_limits WHERE identifier = ?");
+    $stmt->bind_param("s", $identifier);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $count = $result->fetch_assoc()['count'];
+    
+    if ($count >= $max_attempts) {
+        return false;
+    }
+    
+    // Record this attempt
+    $stmt = $db->prepare("INSERT INTO rate_limits (identifier, attempt_time) VALUES (?, ?)");
+    $stmt->bind_param("si", $identifier, $current_time);
+    $stmt->execute();
+    
+    return true;
 }
 
 date_default_timezone_set('Asia/Jakarta');
