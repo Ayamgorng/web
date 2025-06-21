@@ -212,3 +212,65 @@ ALTER TABLE `pembelian_sosmed`
 ADD COLUMN IF NOT EXISTS `voucher_code` varchar(50) DEFAULT NULL,
 ADD COLUMN IF NOT EXISTS `discount_amount` decimal(10,2) DEFAULT 0,
 ADD COLUMN IF NOT EXISTS `original_price` decimal(10,2) DEFAULT NULL;
+
+-- Add language support table
+CREATE TABLE IF NOT EXISTS `user_preferences` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `user_id` int(11) NOT NULL,
+    `language` varchar(5) DEFAULT 'id',
+    `timezone` varchar(50) DEFAULT 'Asia/Jakarta',
+    `currency` varchar(5) DEFAULT 'IDR',
+    `theme` varchar(20) DEFAULT 'light',
+    `notifications_enabled` tinyint(1) DEFAULT 1,
+    `email_notifications` tinyint(1) DEFAULT 1,
+    `sms_notifications` tinyint(1) DEFAULT 0,
+    `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `unique_user_preferences` (`user_id`),
+    FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Add language settings to website_settings
+INSERT INTO `website_settings` (`setting_key`, `setting_value`, `description`, `category`, `is_public`) VALUES
+('default_language', 'id', 'Default website language (id/en)', 'language', 1),
+('supported_languages', 'id,en', 'Comma-separated list of supported languages', 'language', 1),
+('auto_detect_language', '1', 'Auto-detect user language from browser', 'language', 1),
+('language_switcher_enabled', '1', 'Enable language switcher in header', 'language', 1),
+('rtl_support', '0', 'Enable right-to-left language support', 'language', 1);
+
+-- Add multi-language content table
+CREATE TABLE IF NOT EXISTS `content_translations` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `content_type` varchar(50) NOT NULL, -- 'page', 'notification', 'email_template', etc.
+    `content_id` int(11) NOT NULL,
+    `language` varchar(5) NOT NULL,
+    `title` text,
+    `content` longtext,
+    `meta_description` text,
+    `meta_keywords` text,
+    `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `unique_content_translation` (`content_type`, `content_id`, `language`),
+    INDEX `idx_content_type_lang` (`content_type`, `language`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Add language-specific voucher names and descriptions
+ALTER TABLE `vouchers` 
+ADD COLUMN IF NOT EXISTS `name_en` varchar(255) DEFAULT NULL AFTER `code`,
+ADD COLUMN IF NOT EXISTS `description_en` text DEFAULT NULL AFTER `name_en`;
+
+-- Add language-specific flash sale content
+ALTER TABLE `flash_sales` 
+ADD COLUMN IF NOT EXISTS `title_en` varchar(255) DEFAULT NULL AFTER `description`,
+ADD COLUMN IF NOT EXISTS `description_en` text DEFAULT NULL AFTER `title_en`;
+
+-- Add language-specific notification content
+ALTER TABLE `notifications` 
+ADD COLUMN IF NOT EXISTS `title_en` varchar(255) DEFAULT NULL AFTER `message`,
+ADD COLUMN IF NOT EXISTS `message_en` text DEFAULT NULL AFTER `title_en`;
+
+-- Add additional indexes for language support
+CREATE INDEX IF NOT EXISTS `idx_user_preferences_user` ON `user_preferences`(`user_id`);
+CREATE INDEX IF NOT EXISTS `idx_content_translations_lookup` ON `content_translations`(`content_type`, `content_id`, `language`);

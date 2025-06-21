@@ -13,6 +13,12 @@ $data_reCapcha = $check_reCapcha->fetch_assoc();
 require_once BASEPATH.'helpers/voucher_helper.php';
 require_once BASEPATH.'helpers/flashsale_helper.php';
 require_once BASEPATH.'helpers/support_helper.php';
+require_once BASEPATH.'helpers/language_helper.php';
+
+// Initialize language manager
+$language_manager = get_language_manager();
+$current_language = get_current_language();
+$available_languages = get_available_languages();
 
 // Get active flash sales for header notification
 $active_flash_sales = get_active_flash_sales();
@@ -265,10 +271,31 @@ function level($s) {
             </a>
             
             <div class="navbar-nav ms-auto d-flex flex-row align-items-center gap-3">
+                <!-- Language Switcher -->
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary btn-sm" type="button" data-bs-toggle="dropdown">
+                        <span class="flag-icon"><?= $available_languages[$current_language]['flag'] ?></span>
+                        <?= $available_languages[$current_language]['name'] ?>
+                        <i class="fas fa-chevron-down ms-1"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <?php foreach($available_languages as $lang_code => $lang_info): ?>
+                        <a class="dropdown-item <?= $current_language === $lang_code ? 'active' : '' ?>" 
+                           href="#" onclick="changeLanguage('<?= $lang_code ?>')">
+                            <span class="flag-icon me-2"><?= $lang_info['flag'] ?></span>
+                            <?= $lang_info['name'] ?>
+                            <?php if($current_language === $lang_code): ?>
+                            <i class="fas fa-check text-success ms-auto"></i>
+                            <?php endif; ?>
+                        </a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                
                 <!-- Voucher Quick Access -->
                 <div class="dropdown">
                     <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="dropdown">
-                        <i class="fas fa-ticket-alt"></i> Voucher
+                        <i class="fas fa-ticket-alt"></i> <?= lang('voucher') ?>
                     </button>
                     <div class="dropdown-menu p-3" style="min-width: 300px;">
                         <h6 class="dropdown-header">Gunakan Voucher</h6>
@@ -439,3 +466,101 @@ function level($s) {
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
         <?php unset($_SESSION['alert']); } ?>
+
+    <!-- Language Switcher JavaScript -->
+    <script>
+    function changeLanguage(langCode) {
+        // Show loading indicator
+        const loadingToast = showToast('info', 'Mengubah bahasa...', 'Mohon tunggu sebentar');
+        
+        // Send AJAX request to change language
+        fetch('<?= base_url('/api/language_api.php') ?>', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                action: 'set_language',
+                language: langCode
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Hide loading toast
+                hideToast(loadingToast);
+                
+                // Show success message
+                showToast('success', 'Bahasa berhasil diubah!', 'Halaman akan dimuat ulang...');
+                
+                // Reload page after short delay
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            } else {
+                hideToast(loadingToast);
+                showToast('error', 'Gagal mengubah bahasa', data.message || 'Terjadi kesalahan');
+            }
+        })
+        .catch(error => {
+            hideToast(loadingToast);
+            showToast('error', 'Error', 'Terjadi kesalahan saat mengubah bahasa');
+            console.error('Language change error:', error);
+        });
+    }
+
+    // Toast notification functions
+    function showToast(type, title, message) {
+        const toastId = 'toast-' + Date.now();
+        const iconClass = type === 'success' ? 'fa-check-circle' : 
+                         type === 'error' ? 'fa-exclamation-triangle' : 'fa-info-circle';
+        const bgClass = type === 'success' ? 'bg-success' : 
+                       type === 'error' ? 'bg-danger' : 'bg-info';
+        
+        const toastHtml = `
+            <div id="${toastId}" class="toast align-items-center text-white ${bgClass} border-0" role="alert">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        <i class="fas ${iconClass} me-2"></i>
+                        <strong>${title}</strong><br>
+                        <small>${message}</small>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                </div>
+            </div>
+        `;
+        
+        // Create toast container if it doesn't exist
+        let toastContainer = document.getElementById('toast-container');
+        if (!toastContainer) {
+            toastContainer = document.createElement('div');
+            toastContainer.id = 'toast-container';
+            toastContainer.className = 'toast-container position-fixed top-0 end-0 p-3';
+            toastContainer.style.zIndex = '9999';
+            document.body.appendChild(toastContainer);
+        }
+        
+        // Add toast to container
+        toastContainer.insertAdjacentHTML('beforeend', toastHtml);
+        
+        // Initialize and show toast
+        const toastElement = document.getElementById(toastId);
+        const toast = new bootstrap.Toast(toastElement, {
+            autohide: type !== 'info', // Don't auto-hide loading toasts
+            delay: 3000
+        });
+        toast.show();
+        
+        return toastId;
+    }
+
+    function hideToast(toastId) {
+        const toastElement = document.getElementById(toastId);
+        if (toastElement) {
+            const toast = bootstrap.Toast.getInstance(toastElement);
+            if (toast) {
+                toast.hide();
+            }
+        }
+    }
+    </script>
