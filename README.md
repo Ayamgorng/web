@@ -1,202 +1,226 @@
-# Website Topup Enhancements
+# Peningkatan Situs Web Topup
 
-## Overview
-This document outlines the comprehensive enhancements made to the topup website, transforming it into a modern, feature-rich platform with advanced functionality.
+## Gambaran Umum
 
-## 🚀 New Features Added
+Dokumen ini menguraikan peningkatan komprehensif yang telah dilakukan pada situs web topup, mengubahnya menjadi platform modern yang kaya fitur dengan fungsionalitas canggih.
 
-### 1. Voucher System
-- **Discount Vouchers**: Support for percentage and fixed amount discounts
-- **Usage Limits**: Control how many times a voucher can be used
-- **Minimum Purchase**: Set minimum purchase requirements
-- **Maximum Discount**: Cap the maximum discount amount
-- **Expiry Dates**: Time-limited vouchers
-- **Usage Tracking**: Complete audit trail of voucher usage
+## 🚀 Fitur Baru yang Ditambahkan
 
-#### Voucher Management Features:
-- Generate unique voucher codes automatically
-- Bulk voucher creation
-- Real-time validation
-- Usage statistics and analytics
-- Admin dashboard for voucher management
+### 1\. Sistem Voucher
 
-### 2. Flash Sale System
-- **Time-Limited Sales**: Create sales with specific start and end times
-- **Product-Specific Discounts**: Apply discounts to specific products
-- **Stock Limits**: Control inventory for flash sale items
-- **Real-Time Countdown**: Live countdown timers
-- **Automatic Status Updates**: Sales automatically start and end
-- **Sales Analytics**: Track performance and revenue
+  - **Voucher Diskon**: Dukungan untuk diskon persentase dan jumlah tetap
+  - **Batas Penggunaan**: Mengontrol berapa kali voucher dapat digunakan
+  - **Pembelian Minimum**: Menetapkan persyaratan pembelian minimum
+  - **Diskon Maksimum**: Membatasi jumlah diskon maksimum
+  - **Tanggal Kedaluwarsa**: Voucher berbatas waktu
+  - **Pelacakan Penggunaan**: Jejak audit lengkap penggunaan voucher
 
-#### Flash Sale Features:
-- Multiple concurrent sales support
-- Percentage or fixed amount discounts
-- Product category filtering
-- Sales performance tracking
-- Automatic price calculations
+#### Fitur Manajemen Voucher:
 
-### 3. Customer Service System
-- **Support Tickets**: Structured ticket management system
-- **Multi-Category Support**: General, Technical, Billing, Complaints, Suggestions
-- **Priority Levels**: Low, Medium, High, Urgent
-- **Status Tracking**: Open, In Progress, Waiting Customer, Resolved, Closed
-- **Message Threading**: Complete conversation history
-- **Admin Assignment**: Assign tickets to specific admins
-- **Response Time Tracking**: Monitor support performance
+  - Membuat kode voucher unik secara otomatis
+  - Pembuatan voucher massal
+  - Validasi waktu nyata
+  - Statistik dan analisis penggunaan
+  - Dasbor admin untuk manajemen voucher
 
-#### Support Features:
-- Unique ticket ID generation
-- Email notifications
-- File attachment support
-- Search and filter capabilities
-- Performance analytics
+### 2\. Sistem Flash Sale
 
-### 4. Enhanced Admin Panel
-- **Comprehensive Dashboard**: Real-time statistics and metrics
-- **Quick Actions**: Fast access to common tasks
-- **Feature Management**: Control all new features from one place
-- **User Management**: Enhanced user control and monitoring
-- **System Settings**: Centralized configuration management
-- **Audit Logging**: Track all admin actions
+  - **Penjualan Berbatas Waktu**: Membuat penjualan dengan waktu mulai dan berakhir tertentu
+  - **Diskon Spesifik Produk**: Menerapkan diskon pada produk tertentu
+  - **Batas Stok**: Mengontrol inventaris untuk item flash sale
+  - **Hitung Mundur Waktu Nyata**: Pengatur waktu hitung mundur langsung
+  - **Pembaruan Status Otomatis**: Penjualan otomatis dimulai dan berakhir
+  - **Analisis Penjualan**: Melacak kinerja dan pendapatan
 
-#### Admin Features:
-- Revenue analytics
-- User activity monitoring
-- Transaction management
-- System health monitoring
-- Backup and restore functionality
+#### Fitur Flash Sale:
 
-### 5. Modern UI/UX Design
-- **Bootstrap 5**: Latest responsive framework
-- **Modern Typography**: Google Fonts integration
-- **Icon System**: Font Awesome 6 icons
-- **Responsive Design**: Mobile-first approach
-- **Dark/Light Themes**: Theme switching capability
-- **Smooth Animations**: CSS transitions and effects
-- **Loading States**: Better user feedback
+  - Dukungan beberapa penjualan bersamaan
+  - Diskon persentase atau jumlah tetap
+  - Pemfilteran kategori produk
+  - Pelacakan kinerja penjualan
+  - Perhitungan harga otomatis
 
-#### Design Features:
-- Card-based layouts
-- Gradient backgrounds
-- Hover effects
-- Toast notifications
-- Modal dialogs
-- Progressive enhancement
+### 3\. Sistem Layanan Pelanggan
 
-### 6. Notification System
-- **Real-Time Notifications**: Instant user notifications
-- **Global Announcements**: Site-wide messages
-- **Targeted Notifications**: User-specific messages
-- **Notification Types**: Info, Success, Warning, Error, Promotion
-- **Expiry Management**: Time-limited notifications
-- **Read Status Tracking**: Mark notifications as read
+  - **Tiket Dukungan**: Sistem manajemen tiket terstruktur
+  - **Dukungan Multi-Kategori**: Umum, Teknis, Penagihan, Keluhan, Saran
+  - **Tingkat Prioritas**: Rendah, Sedang, Tinggi, Mendesak
+  - **Pelacakan Status**: Terbuka, Dalam Proses, Menunggu Pelanggan, Teratasi, Ditutup
+  - **Rangkaian Pesan**: Riwayat percakapan lengkap
+  - **Penugasan Admin**: Menugaskan tiket ke admin tertentu
+  - **Pelacakan Waktu Respons**: Memantau kinerja dukungan
 
-### 7. Security Enhancements
-- **Rate Limiting**: Prevent abuse and spam
-- **CSRF Protection**: Cross-site request forgery protection
-- **Input Sanitization**: Secure data handling
-- **Session Management**: Enhanced session security
-- **Password Security**: Improved password handling
-- **Audit Logging**: Track security events
+#### Fitur Dukungan:
 
-### 8. Performance Optimizations
-- **Database Indexing**: Optimized database queries
-- **Caching System**: Improved response times
-- **Asset Optimization**: Minified CSS/JS
-- **Lazy Loading**: Improved page load times
-- **CDN Integration**: Fast asset delivery
+  - Pembuatan ID tiket unik
+  - Pemberitahuan email
+  - Dukungan lampiran file
+  - Kemampuan mencari dan memfilter
+  - Analisis kinerja
 
-## 📁 File Structure
+### 4\. Panel Admin yang Ditingkatkan
+
+  - **Dasbor Komprehensif**: Statistik dan metrik waktu nyata
+  - **Tindakan Cepat**: Akses cepat ke tugas umum
+  - **Manajemen Fitur**: Mengontrol semua fitur baru dari satu tempat
+  - **Manajemen Pengguna**: Kontrol dan pemantauan pengguna yang ditingkatkan
+  - **Pengaturan Sistem**: Manajemen konfigurasi terpusat
+  - **Pencatatan Audit**: Melacak semua tindakan admin
+
+#### Fitur Admin:
+
+  - Analisis pendapatan
+  - Pemantauan aktivitas pengguna
+  - Manajemen transaksi
+  - Pemantauan kesehatan sistem
+  - Fungsionalitas pencadangan dan pemulihan
+
+### 5\. Desain UI/UX Modern
+
+  - **Bootstrap 5**: Kerangka responsif terbaru
+  - **Tipografi Modern**: Integrasi Google Fonts
+  - **Sistem Ikon**: Ikon Font Awesome 6
+  - **Desain Responsif**: Pendekatan mobile-first
+  - **Tema Gelap/Terang**: Kemampuan penggantian tema
+  - **Animasi Halus**: Transisi dan efek CSS
+  - **Status Memuat**: Umpan balik pengguna yang lebih baik
+
+#### Fitur Desain:
+
+  - Tata letak berbasis kartu
+  - Latar belakang gradien
+  - Efek hover
+  - Pemberitahuan toast
+  - Kotak dialog modal
+  - Peningkatan progresif
+
+### 6\. Sistem Notifikasi
+
+  - **Notifikasi Waktu Nyata**: Notifikasi pengguna instan
+  - **Pengumuman Global**: Pesan di seluruh situs
+  - **Notifikasi Tertarget**: Pesan khusus pengguna
+  - **Jenis Notifikasi**: Info, Sukses, Peringatan, Kesalahan, Promosi
+  - **Manajemen Kedaluwarsa**: Notifikasi berbatas waktu
+  - **Pelacakan Status Terbaca**: Menandai notifikasi sebagai telah dibaca
+
+### 7\. Peningkatan Keamanan
+
+  - **Pembatasan Batas**: Mencegah penyalahgunaan dan spam
+  - **Perlindungan CSRF**: Perlindungan pemalsuan permintaan lintas situs
+  - **Sanitasi Input**: Penanganan data yang aman
+  - **Manajemen Sesi**: Keamanan sesi yang ditingkatkan
+  - **Keamanan Kata Sandi**: Penanganan kata sandi yang lebih baik
+  - **Pencatatan Audit**: Melacak peristiwa keamanan
+
+### 8\. Pengoptimalan Kinerja
+
+  - **Pengindeksan Basis Data**: Kueri basis data yang dioptimalkan
+  - **Sistem Caching**: Waktu respons yang lebih baik
+  - **Optimasi Aset**: Minified CSS/JS
+  - **Lazy Loading**: Waktu pemuatan halaman yang lebih baik
+  - **Integrasi CDN**: Pengiriman aset cepat
+
+## 📁 Struktur Berkas
 
 ```
 workspace/
-├── database_updates.sql          # Database schema updates
+├── database_updates.sql         # Pembaruan skema basis data
 ├── system/
 │   └── helpers/
-│       ├── voucher_helper.php    # Voucher management functions
-│       ├── flashsale_helper.php  # Flash sale management
-│       └── support_helper.php    # Customer service functions
+│       ├── voucher_helper.php   # Fungsi manajemen voucher
+│       ├── flashsale_helper.php # Manajemen flash sale
+│       └── support_helper.php   # Fungsi layanan pelanggan
 ├── layouts/
-│   ├── header_modern.php         # Modern header layout
-│   └── footer_modern.php         # Modern footer layout
+│   ├── header_modern.php        # Tata letak header modern
+│   └── footer_modern.php        # Tata letak footer modern
 ├── admin/
-│   └── dashboard_enhanced.php    # Enhanced admin dashboard
+│   └── dashboard_enhanced.php   # Dasbor admin yang ditingkatkan
 ├── api/
-│   └── voucher_api.php          # Voucher API endpoints
-└── README_ENHANCEMENTS.md       # This documentation
+│   └── voucher_api.php          # Titik akhir API voucher
+└── README_ENHANCEMENTS.md       # Dokumentasi ini
 ```
 
-## 🛠 Installation Instructions
+## 🛠 Instruksi Instalasi
 
-### 1. Database Setup
+### 1\. Penyiapan Basis Data
+
 ```sql
--- Run the database updates
+-- Jalankan pembaruan basis data
 SOURCE database_updates.sql;
 ```
 
-### 2. File Integration
-1. Copy all files to your website directory
-2. Update your existing header/footer includes to use the new layouts
-3. Ensure proper file permissions
+### 2\. Integrasi Berkas
 
-### 3. Configuration
-1. Update database connection settings
-2. Configure CSRF tokens
-3. Set up notification preferences
-4. Configure voucher settings
+1.  Salin semua berkas ke direktori situs web Anda
+2.  Perbarui `include` header/footer yang ada untuk menggunakan tata letak baru
+3.  Pastikan izin berkas yang benar
 
-### 4. Testing
-1. Test voucher creation and validation
-2. Create test flash sales
-3. Test customer service functionality
-4. Verify admin panel access
+### 3\. Konfigurasi
 
-## 🔧 Configuration Options
+1.  Perbarui pengaturan koneksi basis data
+2.  Konfigurasikan token CSRF
+3.  Atur preferensi notifikasi
+4.  Konfigurasikan pengaturan voucher
 
-### Voucher Settings
+### 4\. Pengujian
+
+1.  Uji pembuatan dan validasi voucher
+2.  Buat penjualan flash sale pengujian
+3.  Uji fungsionalitas layanan pelanggan
+4.  Verifikasi akses panel admin
+
+## 🔧 Pilihan Konfigurasi
+
+### Pengaturan Voucher
+
 ```php
-// In website_settings table
-'voucher_enabled' => '1'           // Enable/disable voucher system
-'max_voucher_discount' => '50'     // Maximum discount percentage
-'voucher_expiry_days' => '30'      // Default voucher expiry
+// Dalam tabel website_settings
+'voucher_enabled' => '1'         // Mengaktifkan/menonaktifkan sistem voucher
+'max_voucher_discount' => '50'   // Persentase diskon maksimum
+'voucher_expiry_days' => '30'    // Kedaluwarsa voucher default
 ```
 
-### Flash Sale Settings
+### Pengaturan Flash Sale
+
 ```php
-'flash_sale_enabled' => '1'        // Enable/disable flash sales
-'max_flash_discount' => '70'       // Maximum flash sale discount
-'flash_sale_duration' => '24'      // Default duration in hours
+'flash_sale_enabled' => '1'      // Mengaktifkan/menonaktifkan flash sale
+'max_flash_discount' => '70'     // Diskon flash sale maksimum
+'flash_sale_duration' => '24'    // Durasi default dalam jam
 ```
 
-### Support Settings
+### Pengaturan Dukungan
+
 ```php
-'customer_service_enabled' => '1'  // Enable/disable support system
-'auto_assign_tickets' => '0'       // Auto-assign tickets to admins
-'ticket_response_time' => '24'     // Expected response time in hours
+'customer_service_enabled' => '1'// Mengaktifkan/menonaktifkan sistem dukungan
+'auto_assign_tickets' => '0'     // Otomatis menugaskan tiket ke admin
+'ticket_response_time' => '24'   // Waktu respons yang diharapkan dalam jam
 ```
 
-## 📊 Database Tables Added
+## 📊 Tabel Basis Data yang Ditambahkan
 
-### Core Tables
-- `vouchers` - Voucher definitions and settings
-- `voucher_usage` - Voucher usage tracking
-- `flash_sales` - Flash sale campaigns
-- `flash_sale_products` - Products in flash sales
-- `support_tickets` - Customer service tickets
-- `support_messages` - Ticket conversation history
-- `notifications` - User notifications
-- `admin_logs` - Admin action audit trail
-- `website_settings` - System configuration
-- `rate_limits` - Security rate limiting
+### Tabel Utama
 
-### Enhanced Tables
-- `users` - Added security and tracking fields
-- `pembelian_pulsa` - Added voucher support
-- `pembelian_sosmed` - Added voucher support
+  - `vouchers` - Definisi dan pengaturan voucher
+  - `voucher_usage` - Pelacakan penggunaan voucher
+  - `flash_sales` - Kampanye flash sale
+  - `flash_sale_products` - Produk dalam flash sale
+  - `support_tickets` - Tiket layanan pelanggan
+  - `support_messages` - Riwayat percakapan tiket
+  - `notifications` - Notifikasi pengguna
+  - `admin_logs` - Jejak audit tindakan admin
+  - `website_settings` - Konfigurasi sistem
+  - `rate_limits` - Pembatasan batas keamanan
 
-## 🎯 Usage Examples
+### Tabel yang Ditingkatkan
 
-### Creating a Voucher
+  - `users` - Menambahkan bidang keamanan dan pelacakan
+  - `pembelian_pulsa` - Menambahkan dukungan voucher
+  - `pembelian_sosmed` - Menambahkan dukungan voucher
+
+## 🎯 Contoh Penggunaan
+
+### Membuat Voucher
+
 ```php
 $voucher_data = [
     'code' => 'WELCOME20',
@@ -214,11 +238,12 @@ $vm = get_voucher_manager();
 $vm->createVoucher($voucher_data);
 ```
 
-### Creating a Flash Sale
+### Membuat Flash Sale
+
 ```php
 $flash_sale_data = [
     'title' => 'Weekend Flash Sale',
-    'description' => 'Special weekend discounts',
+    'description' => 'Diskon akhir pekan spesial',
     'discount_type' => 'percentage',
     'discount_value' => 30,
     'start_time' => '2024-01-15 00:00:00',
@@ -230,144 +255,164 @@ $fsm = get_flashsale_manager();
 $fsm->createFlashSale($flash_sale_data);
 ```
 
-### Creating a Support Ticket
+### Membuat Tiket Dukungan
+
 ```php
 $ticket_id = create_support_ticket(
     $user_id,
-    'Payment Issue',
-    'I have a problem with my payment',
+    'Masalah Pembayaran',
+    'Saya punya masalah dengan pembayaran saya',
     'billing',
     'high'
 );
 ```
 
-## 🔒 Security Features
+## 🔒 Fitur Keamanan
 
-### Rate Limiting
-- Login attempt limiting
-- API request rate limiting
-- Voucher validation limiting
+### Pembatasan Batas
 
-### Data Protection
-- SQL injection prevention
-- XSS protection
-- CSRF token validation
-- Input sanitization
+  - Pembatasan upaya login
+  - Pembatasan batas permintaan API
+  - Pembatasan validasi voucher
 
-### Access Control
-- Role-based permissions
-- Admin action logging
-- Session security
-- Password policies
+### Perlindungan Data
 
-## 📈 Analytics & Reporting
+  - Pencegahan injeksi SQL
+  - Perlindungan XSS
+  - Validasi token CSRF
+  - Sanitasi input
 
-### Voucher Analytics
-- Usage statistics
-- Revenue impact
-- Popular voucher types
-- User engagement metrics
+### Kontrol Akses
 
-### Flash Sale Analytics
-- Sales performance
-- Revenue generated
-- Product popularity
-- Time-based analysis
+  - Izin berbasis peran
+  - Pencatatan tindakan admin
+  - Keamanan sesi
+  - Kebijakan kata sandi
 
-### Support Analytics
-- Response times
-- Resolution rates
-- Category distribution
-- Customer satisfaction
+## 📈 Analisis & Pelaporan
 
-## 🚀 Performance Features
+### Analisis Voucher
+
+  - Statistik penggunaan
+  - Dampak pendapatan
+  - Jenis voucher populer
+  - Metrik keterlibatan pengguna
+
+### Analisis Flash Sale
+
+  - Kinerja penjualan
+  - Pendapatan yang dihasilkan
+  - Popularitas produk
+  - Analisis berdasarkan waktu
+
+### Analisis Dukungan
+
+  - Waktu respons
+  - Tingkat resolusi
+  - Distribusi kategori
+  - Kepuasan pelanggan
+
+## 🚀 Fitur Kinerja
 
 ### Caching
-- Query result caching
-- Session caching
-- Static asset caching
 
-### Optimization
-- Database query optimization
-- Image optimization
-- CSS/JS minification
-- Lazy loading
+  - Caching hasil kueri
+  - Caching sesi
+  - Caching aset statis
 
-### Monitoring
-- Performance metrics
-- Error tracking
-- User activity monitoring
-- System health checks
+### Optimasi
 
-## 🔄 Maintenance
+  - Optimasi kueri basis data
+  - Optimasi gambar
+  - Minifikasi CSS/JS
+  - Lazy loading
 
-### Regular Tasks
-1. Clean expired vouchers
-2. Update flash sale statuses
-3. Archive old support tickets
-4. Backup database
-5. Monitor system performance
+### Pemantauan
 
-### Monitoring
-- Check error logs
-- Monitor database performance
-- Review security logs
-- Analyze user feedback
+  - Metrik kinerja
+  - Pelacakan kesalahan
+  - Pemantauan aktivitas pengguna
+  - Pemeriksaan kesehatan sistem
 
-## 🆕 Future Enhancements
+## 🔄 Pemeliharaan
 
-### Planned Features
-1. **Mobile App Integration**
-   - API endpoints for mobile apps
-   - Push notifications
-   - Mobile-specific features
+### Tugas Reguler
 
-2. **Advanced Analytics**
-   - Revenue forecasting
-   - User behavior analysis
-   - A/B testing framework
+1.  Bersihkan voucher yang kedaluwarsa
+2.  Perbarui status flash sale
+3.  Arsipkan tiket dukungan lama
+4.  Cadangkan basis data
+5.  Pantau kinerja sistem
 
-3. **Marketing Tools**
-   - Email campaigns
-   - Social media integration
-   - Referral system
+### Pemantauan
 
-4. **Payment Enhancements**
-   - Multiple payment gateways
-   - Cryptocurrency support
-   - Subscription billing
+  - Periksa log kesalahan
+  - Pantau kinerja basis data
+  - Tinjau log keamanan
+  - Analisis umpan balik pengguna
 
-5. **AI Integration**
-   - Chatbot support
-   - Fraud detection
-   - Personalized recommendations
+## 🆕 Peningkatan di Masa Depan
 
-## 📞 Support
+### Fitur yang Direncanakan
 
-For technical support or questions about these enhancements:
+1.  **Integrasi Aplikasi Seluler**
 
-1. Check the documentation
-2. Review the code comments
-3. Test in a development environment first
-4. Create support tickets for issues
+      - Titik akhir API untuk aplikasi seluler
+      - Pemberitahuan push
+      - Fitur khusus seluler
 
-## 📝 Changelog
+2.  **Analisis Lanjut**
 
-### Version 2.0.0 (Current)
-- Added voucher system
-- Added flash sale system
-- Added customer service system
-- Enhanced admin panel
-- Modern UI/UX design
-- Security improvements
-- Performance optimizations
+      - Prakiraan pendapatan
+      - Analisis perilaku pengguna
+      - Kerangka A/B testing
 
-### Version 1.0.0 (Original)
-- Basic topup functionality
-- User management
-- Transaction processing
-- Simple admin panel
+3.  **Alat Pemasaran**
 
----
+      - Kampanye email
+      - Integrasi media sosial
+      - Sistem rujukan
 
-**Note**: This enhancement package transforms your basic topup website into a comprehensive, modern platform with enterprise-level features. All code is production-ready and follows best practices for security, performance, and maintainability.
+4.  **Peningkatan Pembayaran**
+
+      - Beberapa gateway pembayaran
+      - Dukungan mata uang kripto
+      - Penagihan langganan
+
+5.  **Integrasi AI**
+
+      - Dukungan chatbot
+      - Deteksi penipuan
+      - Rekomendasi yang dipersonalisasi
+
+## 📞 Dukungan
+
+Untuk dukungan teknis atau pertanyaan tentang peningkatan ini:
+
+1.  Periksa dokumentasi
+2.  Tinjau komentar kode
+3.  Uji di lingkungan pengembangan terlebih dahulu
+4.  Buat tiket dukungan untuk masalah
+
+## 📝 Catatan Perubahan
+
+### Versi 2.0.0 (Saat Ini)
+
+  - Menambahkan sistem voucher
+  - Menambahkan sistem flash sale
+  - Menambahkan sistem layanan pelanggan
+  - Panel admin yang ditingkatkan
+  - Desain UI/UX modern
+  - Peningkatan keamanan
+  - Pengoptimalan kinerja
+
+### Versi 1.0.0 (Asli)
+
+  - Fungsionalitas topup dasar
+  - Manajemen pengguna
+  - Pemrosesan transaksi
+  - Panel admin sederhana
+
+-----
+
+**Catatan**: Paket peningkatan ini mengubah situs web topup dasar Anda menjadi platform komprehensif modern dengan fitur tingkat perusahaan. Semua kode siap produksi dan mengikuti praktik terbaik untuk keamanan, kinerja, dan pemeliharaan.
